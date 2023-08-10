@@ -1,0 +1,24 @@
+{
+  "name": "mytinerary-back-rex",
+  "version": "1.0.0",
+  "description": "argentinaprograma mern",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasRex/mytinerary-back-tomasrex.git"
+  },
+  "author": "Tomas Rex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomasRex/mytinerary-back-tomasrex/issues"
+  },
+  "homepage": "https://github.com/TomasRex/mytinerary-back-tomasrex#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
