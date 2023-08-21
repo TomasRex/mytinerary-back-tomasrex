@@ -1,12 +1,22 @@
+import 'dotenv/config.js'
 import express from 'express';
-import indexrouter from './router/indexrouter.js'
+import indexRouter from './router/indexRouter.js';
+import cors from 'cors'
+import './config/database.js'
+import errorHandler from './middlewares/errorHandler.js';
+import notFoundHandler from './middlewares/notFound.js';
 
 const server = express();
 
-server.use('/api', indexrouter)
+server.use(cors())
+server.use(express.json())
+server.use('/api', indexRouter)
 
 server.get('/', (request, response, next)=>{
     response.send('Bienvenido a mi servidor en /')
 })
 
-server.listen(3000, ()=> { console.log('Servidor corriendo en puerto 3000') })
+server.use(notFoundHandler)
+server.use(errorHandler)
+
+server.listen(process.env['PORT'], ()=> { console.log('Servidor corriendo en puerto ' + process.env['PORT']) })

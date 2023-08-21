@@ -1,13 +1,13 @@
 import {Router} from 'express';
-import eventscontroller from '../controllers/eventscontroller.js';
+import citiesRouter from './citiesRouter.js';
 
-const indexrouter = Router();
+const indexRouter = Router();
 
-indexrouter.get('/', (request, response, next) => {
+indexRouter.get('/', (request, response, next) => {
     console.log(request.params)
     response.send('Bienvenido a mi servidor en /api')
 })
-indexrouter.get('events', eventscontroller.getEvents)
 
+indexRouter.use('/cities', citiesRouter)
 
-export default indexrouter
+export default indexRouter
