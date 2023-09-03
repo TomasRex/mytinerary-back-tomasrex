@@ -1,14 +1,14 @@
 import { Router } from 'express';
-import eventsController from '../controllers/eventsController.js';
+import citiesController from '../controllers/citiesController.js';
 const citiesRouter = Router()
 import read from '../controllers/read.js'
 
-const { getAllEvents, getEvents, getOneEvent, createOneEvent, updateOneEvent, deleteOneEvent} = eventsController 
+const { getOneCity, createOneCity, updateOneCity, deleteOneCity} = citiesController 
 
 citiesRouter.get('/', read)
-citiesRouter.post('/', createOneEvent)
-citiesRouter.get('/:id', getOneEvent)
-citiesRouter.put('/:id', updateOneEvent)
-citiesRouter.delete('/:id', deleteOneEvent)
+citiesRouter.post('/', createOneCity)
+citiesRouter.get('/:id', getOneCity)
+citiesRouter.put('/:id', updateOneCity)
+citiesRouter.delete('/:id', deleteOneCity)
 
 export default citiesRouter

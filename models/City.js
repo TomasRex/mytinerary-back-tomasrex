@@ -4,6 +4,7 @@ const citySchema = mongoose.Schema({
     name: {type: String, required: true},
     description: {type: String},
     image: {type: String, required: true},
+    itinerary: [{type: mongoose.Types.ObjectId, ref:'Itinerary', required: true}],
 }, {
     timestamps: true
 })

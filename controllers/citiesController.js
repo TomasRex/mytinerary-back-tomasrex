@@ -1,8 +1,7 @@
 import City from "../models/City.js";
-import cities from "../cities.js"
 
-const eventsController = {
-    getAllEvents: async(request, response, next) => {
+const citiesController = {
+    getAllCities: async(request, response, next) => {
         const allCities = await City.find()
         response.json({
             response: allCities,
@@ -10,7 +9,7 @@ const eventsController = {
             error: null
         })
     },
-    getEvents : async (request, response, next) =>{
+    getCities : async (request, response, next) =>{
         try {
             const allEvents = await Event.find()
         } catch (error) {
@@ -21,11 +20,11 @@ const eventsController = {
             })
         }
     },
-    getOneEvent: async(request, response, next) => {
+    getOneCity: async(request, response, next) => {
         let cities;
         const { id } = request.params
         try {
-            cities = await City.findById(id)
+            cities = await City.findById(id).populate('itinerary')
         } catch (error) {
             console.log(error)
         }
@@ -35,7 +34,7 @@ const eventsController = {
             error: null
         })
     },
-    createOneEvent: (req, res, next)=>{
+    createOneCity: (req, res, next)=>{
         try{
             const city = City.create(req.body)
             console.log(req.body)
@@ -50,7 +49,7 @@ const eventsController = {
             error: null
         })
     },
-    updateOneEvent: async(req, res, next) => {
+    updateOneCity: async(req, res, next) => {
         const { id } = req.params
         try {
             const city = await City.findOneAndUpdate({_id: id}, req.body, { new: true })
@@ -65,7 +64,7 @@ const eventsController = {
             error: null
         })
     },
-    deleteOneEvent: async(req, res, next) => {
+    deleteOneCity: async(req, res, next) => {
         const { id } = req.params
         try {
             const City = await City.findOneAndDelete({_id: id})
@@ -84,4 +83,4 @@ const eventsController = {
 }
 
 
-export default eventsController
+export default citiesController
