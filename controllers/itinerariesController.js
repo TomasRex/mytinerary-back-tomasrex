@@ -2,31 +2,6 @@ import Itinerary from "../models/Itinerary.js";
 import City from "../models/City.js";
 
 const itinerariesController = {
-  // getItineraries: async (req, res) => {
-  //   console.log(req);
-  //   let { name, city } = req.query;
-  //   let query = {};
-  //   if (name) {
-  //     query.name = { $regex: name.trim(), $options: "i" };
-  //   }
-  //   try {
-  //     const itineraries = await Itinerary.find().populate("city");
-  //     res.json(itineraries);
-  //   } catch (error) {
-  //     res.status(500).json({ error: error });
-  //   }
-  // },
-
-  //   getItinerary: async (req,res) => {
-  //     let itineraries;
-  //     const { id } = request.params
-  //     try {
-  //         itineraries = await Itinerary.city.findById(id)
-  //     } catch (error) {
-  //         console.log(error)
-  //     }
-  //   },
-
   createItinerary: async (req, res) => {
     console.log(req.body.city)
     try {

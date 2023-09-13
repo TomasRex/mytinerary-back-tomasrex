@@ -17,6 +17,6 @@ server.get('/', (request, response, next)=>{
 })
 
 server.use(notFoundHandler)
-server.use(errorHandler)
+//server.use(errorHandler)
 
 server.listen(process.env['PORT'], ()=> { console.log('Servidor corriendo en puerto ' + process.env['PORT']) })
